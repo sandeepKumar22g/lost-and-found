@@ -50,7 +50,7 @@ export default function LoginPage() {
           <button type="submit" style={styles.button}>
             Login
           </button>
-          <p>Don't have account? <Link href={"/register"} style={{textDecoration: "underline", color: "green", fontWeight: "bold"}} >Create one</Link></p>
+          <p>Don&apos;t have account? <Link href={"/register"} style={{textDecoration: "underline", color: "green", fontWeight: "bold"}} >Create one</Link></p>
         </form>
       </div>
     </div>
