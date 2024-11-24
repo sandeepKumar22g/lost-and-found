@@ -1,6 +1,8 @@
 // app/login/page.js
 "use client";
 
+import { apiFetch } from "@/utils/api";
+import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { useState } from "react";
 
@@ -9,14 +11,18 @@ export default function LoginPage() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
-  const handleLogin = (e) => {
+  const handleLogin = async (e) => {
     e.preventDefault();
 
-    if (email === "user@example.com" && password === "password") {
+    let formData = {email, password}
+
+    try {
+      const response = await apiFetch("/api/auth/login", "POST", formData);
       localStorage.setItem("authenticated", "true");
+      localStorage.setItem("user", JSON.stringify(response.user))
       router.push("/");
-    } else {
-      alert("Invalid credentials");
+    } catch (error) {
+      console.log(error, "err")
     }
   };
 
@@ -44,6 +50,7 @@ export default function LoginPage() {
           <button type="submit" style={styles.button}>
             Login
           </button>
+          <p>Don't have account? <Link href={"/register"} style={{textDecoration: "underline", color: "green", fontWeight: "bold"}} >Create one</Link></p>
         </form>
       </div>
     </div>

@@ -23,13 +23,14 @@ export default function Dashboard() {
 
     if (option === "lost") {
       // Navigate to the About page
-      router.push("/about");
+      router.push("/search-lost");
     } else if (option === "found") {
       // Navigate to the Contact page
-      router.push("/contact");
-    } else if (option === "claim") {
+      router.push("/report-found");
+    } else if (option === "logout") {
       // Navigate to the Claim page (you can create a page for claiming items)
-      router.push("/claim");
+      localStorage.clear()
+      router.push("/login");
     }
   };
 
@@ -51,9 +52,9 @@ export default function Dashboard() {
         </div>
         <div
           style={styles.optionCard}
-          onClick={() => handleOptionClick("claim")}
+          onClick={() => handleOptionClick("logout")}
         >
-          <h2 style={styles.optionText}>Claim Item</h2>
+          <h2 style={styles.optionText}>Log out</h2>
         </div>
       </div>
     </div>

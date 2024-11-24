@@ -40,3 +40,17 @@ a {
     color-scheme: dark;
   }
 }
+form div{
+  margin-top: 10px;
+}
+label{
+  color: grey;
+}
+
+h1{
+  color: #0a0a0a;
+}
+
+p{
+  color: #171717;
+}
